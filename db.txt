@@ -1,0 +1,7 @@
+TABLE  - CITY
+    COLUMNS - ID
+            - NAME
+            - COUNTRY CODE
+            - DISTRICT
+            - POPULATION
+
