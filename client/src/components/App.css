@@ -1,0 +1,58 @@
+body {
+  margin: 0;
+  padding: 0px;
+}
+
+/* Seeting up whole editor container 
+btn, editor, background */
+.editor-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  background-color: #272822;
+  width: 50%;
+  height: 60%;
+  float: right;
+  margin-top: 40px;
+  position: fixed; /* Do i need this? */
+  right: 0;
+}
+
+/* Just cuz DRY */
+.btn-container > button {
+  font-family: sans-serif;
+  cursor: pointer;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border-radius: 0.2rem;
+  margin-bottom: 5px;
+  font-size: 10px;
+}
+
+/* Individual btn setup */
+.btn-editor-run {
+  width: 105px;
+  height: 25px;
+  border: none;
+  background-color: #007fff;
+  color: #ffffff;
+}
+
+/* Individual btn setup */
+.btn-editor-reset {
+  margin-left: 5px;
+  width: 80px;
+  color: #ffffff;
+  height: 25px;
+  border: 2px solid #ffffff;
+  background: transparent;
+}
+
+/* Btn icons setup */
+.material-icons {
+  font-size: 18px;
+  margin-right: 1.5px;
+}

@@ -14,7 +14,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "password",
-  database: "world",
+  database: "mydb",
   port: 3306,
 });
 
@@ -25,10 +25,17 @@ db.connect((err) => {
 });
 
 /* get user input from FE and send it to db as query string */ /* NOTE: ADD ERR HANDLING */
-app.post("/api/get-data", function (req, res) {
-  const sqlSelect = req.body.input;
-  db.query(sqlSelect, (err, result) => {
-    console.log(result);
+app.post("/api/send-query", function (req, res) {
+  const sqlQuery = req.body.input;
+  db.query(sqlQuery, (err, result) => {
+    console.log("Api responded successfully.")
+  });
+});
+
+app.get("/api/get-data", function (req, res) {
+  const sqlQuery = req.body.input;
+  db.query(sqlQuery, (err, result) => {
+    res.send(result)
   });
 });
 

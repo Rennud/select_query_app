@@ -18,7 +18,6 @@ export default function Editor(props: any) {
       <ControlledEditor
         onBeforeChange={handleChange}
         value={value}
-        className="code-mirror-wrapper"
         options={{
           lineWrapping: true,
           mode: language,
