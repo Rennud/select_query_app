@@ -23,10 +23,6 @@ export default function App() {
       });
   }
 
-  useEffect(() => {
-    fetch("http://localhost:3001/api/get-data")
-  }, [])
-
   /* Clean up editor - click on reset btn */
   function cleanEditor() {
     setInput("");
