@@ -1,34 +1,53 @@
 body {
   margin: 0;
+  padding: 0px;
 }
 
-/* Query div */
-.query {
+.editor-container {
   display: flex;
   flex-direction: column;
+  padding: 0.5rem;
+  background-color: #272822;
+  width: 50%;
+  height: 100%;
+  float: right;
+  margin-top: 40px;
 }
 
-.input-query {
-  width: 35%;
-  margin: 0 auto;
-  margin-top: 3em;
-  font-size: 25px;
-  height: 30px;
-  text-align: center;
+.code-mirror-wrapper {
 }
 
-.btn-query {
-  width: 20%;
-  height: 40px;
-  margin: 2em auto;
-  font-size: 20px;
-  background: white;
-  border: 2px solid black;
-  border-radius: 6px;
+.btn-container > button {
+  font-family: sans-serif;
   cursor: pointer;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border-radius: 0.2rem;
+  margin-bottom: 5px;
+  font-size: 10px;
 }
 
-.btn-query:hover {
-  background-color: darkgrey;
+.btn-editor-run {
+  width: 105px;
+  height: 25px;
+  border: none;
+  background-color: #007fff;
+  color: #ffffff;
 }
-/* ---------------------------- */
+
+.btn-editor-reset {
+  margin-left: 5px;
+  width: 80px;
+  color: #ffffff;
+  height: 25px;
+  border: 2px solid #ffffff;
+  background: transparent;
+}
+
+.material-icons {
+  font-size: 18px;
+  margin-right: 1.5px;
+}

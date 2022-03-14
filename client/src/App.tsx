@@ -1,18 +1,8 @@
-import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Editor from "./components/Editor";
 
-/* App function handle taking data from user input 
-keeps it as a state and via fecht sends it to BE
-data should be basic select query (SQL syntax)
-*/
 export default function App() {
-  /* Initialize State - default value empty STRING*/
   const [input, setInput] = useState("");
-
-  /* Every time user change input function updates state value */
-  const handelOnChange = (event: {
-    target: { value: React.SetStateAction<string> };
-  }) => setInput(event.target.value);
 
   /* Take data from user and send it to BE */
   function sendQuery() {
@@ -32,20 +22,20 @@ export default function App() {
         console.error("Error:", error);
       });
   }
+
+  function cleanEditor() {
+    setInput("");
+  }
+
   return (
     <div>
-      <div className="query">
-        <input
-          type="text"
-          name="userQuery"
-          className="input-query"
-          onChange={handelOnChange}
-        />
-        <button className="btn-query" onClick={sendQuery}>
-          Get data
-        </button>
-      </div>
-      {/* query DIV */}
+      <Editor
+        language="sql"
+        value={input}
+        onChange={setInput}
+        sendQuery={sendQuery}
+        cleanEditor={cleanEditor}
+      />
     </div>
   );
 }
