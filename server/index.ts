@@ -28,10 +28,9 @@ db.connect((err) => {
 app.post("/api/send-query", function (req, res) {
   const sqlQuery = req.body.input;
   db.query(sqlQuery, (err, result) => {
-    res.send(result)
+    res.send(result);
   });
 });
-
 
 /* create connection */
 const port = 3001;

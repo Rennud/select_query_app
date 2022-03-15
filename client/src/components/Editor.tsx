@@ -27,7 +27,8 @@ export default function Editor(props: any) {
       />
       <div className="btn-container">
         <button className="btn-editor-run" onClick={props.sendQuery}>
-          <i className="material-icons">play_arrow</i>Spustit kód
+          <i className="material-icons">play_arrow</i>
+          {props.btnText}
         </button>
         <button className="btn-editor-reset" onClick={props.cleanEditor}>
           <i className="material-icons">replay</i>

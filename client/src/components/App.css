@@ -3,16 +3,40 @@ body {
   padding: 0px;
 }
 
+.result-container {
+  background-color: #e7e9eb;
+  color: black;
+  font-family: sans-serif;
+  padding: 0.6rem;
+  width: 45%;
+  height: 32%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 20px;
+}
+
+.result {
+  overflow-x: auto;
+  overflow-y: auto;
+  width: 45%;
+  height: 30vh;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+}
+
 /* Seeting up whole editor container 
 btn, editor, background */
 .editor-container {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
+  padding: 0.6rem;
   background-color: #272822;
-  width: 50%;
+  width: 45%;
   height: 60%;
   float: right;
+  font-size: 25px;
   margin-top: 40px;
   position: fixed; /* Do i need this? */
   right: 0;
@@ -27,15 +51,16 @@ btn, editor, background */
   align-items: center;
   justify-content: center;
   font-weight: 700;
+  margin-top: 230px;
   border-radius: 0.2rem;
-  margin-bottom: 5px;
-  font-size: 10px;
+  font-size: 15px;
 }
 
 /* Individual btn setup */
 .btn-editor-run {
-  width: 105px;
-  height: 25px;
+  width: 155px;
+  height: 35px;
+  margin-left: 10px;
   border: none;
   background-color: #007fff;
   color: #ffffff;
@@ -44,9 +69,9 @@ btn, editor, background */
 /* Individual btn setup */
 .btn-editor-reset {
   margin-left: 5px;
-  width: 80px;
+  width: 120px;
   color: #ffffff;
-  height: 25px;
+  height: 35px;
   border: 2px solid #ffffff;
   background: transparent;
 }
@@ -55,4 +80,35 @@ btn, editor, background */
 .material-icons {
   font-size: 18px;
   margin-right: 1.5px;
+}
+
+table {
+  text-align: center;
+}
+
+.thead,
+tr {
+  background-color: white;
+}
+
+.tr,
+th {
+  white-space: nowrap;
+  padding: 1rem;
+  text-align: center;
+  background-color: white;
+}
+
+tbody,
+tr:nth-child(odd) {
+  background-color: #e7e9eb;
+}
+
+.tbody,
+tr,
+td {
+  white-space: nowrap;
+  width: 20%;
+  overflow-wrap: break-word;
+  padding: 0.5rem;
 }
