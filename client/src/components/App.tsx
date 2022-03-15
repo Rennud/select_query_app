@@ -3,7 +3,6 @@ import Editor from "./Editor";
 import DataTable from "./DataTable";
 
 export default function App() {
-  let numRows;
   /* SQL STATEMENT from user */
   const [input, setInput] = useState("");
   /* Recieved data from BE - for purpose of Datatable */
@@ -12,15 +11,15 @@ export default function App() {
   const [btnText, setBtnText] = useState(false);
   /* For purpose of knowing if user input is query SELECT */
   const [isQuery, setIsQuery] = useState(true);
-  /* Tracking number of affected rows */
-  const [rowsAffected, setRowsAffected] = useState(0);
+  /* Display message in case if SQL statements is not query SELECT.*/
+  const [displayMessage, setDisplayMessage] = useState("");
 
   /* Take data from user and send it to BE */
   function sendQuery() {
     /* Keeps actual input from user (It should be select query to db) */
     const userInput = { input };
 
-    if (!input.includes("SELECT") && input !== "") {
+    if (!input.includes("SELECT")) {
       setIsQuery(false);
     }
 
@@ -35,18 +34,24 @@ export default function App() {
     })
       .then((response) => response.json())
       .then((data) => {
-        setRowsAffected(data.affectedRows);
+        setDisplayMessage(
+          data.affectedRows
+            ? `Provedli jste změny v databázi. Dotčené řádky: ${data.affectedRows}`
+            : "Něco se nepovedlo."
+        );
         setData(data);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   }
+
   /* Clean up editor + output - click on reset btn */
   function cleanEditor() {
     setInput("");
     setData([]);
     setBtnText(false);
+    setDisplayMessage("");
   }
 
   return (
@@ -67,13 +72,7 @@ export default function App() {
           {/* First ternary is for purpose of showing table or message */}
           {/* Second ternary is for purpose of showing positive message - everything is okey*/}
           {/* negative message - some mistake in syntax or something */}
-          {isQuery ? (
-            <DataTable data={data} />
-          ) : rowsAffected ? (
-            `Provedli jste změny v databázi. Dotčené řádky: ${rowsAffected}`
-          ) : (
-            "Něco se nepovedlo."
-          )}
+          {isQuery ? <DataTable data={data} /> : displayMessage}
         </div>
       </div>
     </div>
